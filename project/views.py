@@ -7,10 +7,11 @@ from project.models import myproject
 # Create your views here.
 def project_index(request):
     projects = myproject.objects.all()
-    context = {'Project': projects}
-    print(context)
+    name_pro = []
+    for i in projects:
+        name_pro.append(i.name)
 
-    return render(request, 'projects_index.html', context)
+    return render(request, 'projects_index.html', {'name': f'{name_pro}'})
 
 def index(request):
     return render(request, 'index.html')
