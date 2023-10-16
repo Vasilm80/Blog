@@ -7,16 +7,14 @@ from project.models import myproject
 # Create your views here.
 def project_index(request):
     projects = myproject.objects.all()
-    name_pro = []
-    for i in projects:
-        name_pro.append(i.name)
+    context = {'projects': projects}
 
-    return render(request, 'projects_index.html', {'name': f'{name_pro}'})
+    return render(request, 'projects_index.html', context)
 
 def index(request):
     return render(request, 'index.html')
 
 def project_detail(request, pk):
-    proj = myproject.objects.get(pk = pk)
-    dict_projects = {'Project': proj}
-    return render(request, 'project_detail.html', dict_projects)
+    projects = myproject.objects.get(pk = pk)
+    context = {'project': projects}
+    return render(request, 'project_detail.html', context)

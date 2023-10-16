@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Project</title>
 </head>
 <body>
-<div>
-<h1>Это мои проекты!</h1>
-{{ dict_projects }}
+{% block page_content %}
+<div class = 'row'>
+
+        <div class = 'card-body'>
+        <h5>О проекте {{ project.name }}:</h5>
+            <br>
+        <p >{{ project.description }}</p>
+            <br>
+        <h5>Технологии:</h5>
+            <p>{{ project.technology }}</p>
+        </div>
+    <a href="{%  url 'project_index'%}">Вернуться к проектам</a>
 </div>
+{% endblock %}
 </body>
 </html>

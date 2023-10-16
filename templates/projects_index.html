@@ -2,16 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Project</title>
+    <title>Projects</title>
 </head>
 <body>
-<div>
+{% block page_content %}
+
 <h1>Это мои проекты!</h1>
-<p>
-    Название - {{ name }}
-</p>
-
-
+<div class = 'row'>
+    {% for project in projects %}
+        <div class = 'card-body'>
+        <h5 class = 'card-title'>{{ project.name }}</h5>
+        <p class = 'card-text'>{{ project.description }}</p>
+        <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary">
+            Подробнеe
+        </a>
+        </div>
+{% endfor %}
 </div>
+{% endblock %}
 </body>
 </html>
