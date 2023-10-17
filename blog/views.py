@@ -10,22 +10,30 @@ from blog.models import Post, Coments
 def blog_index (request):
     posts = Post.objects.all().order_by('title')
     context = {
-       'posts':posts
+       'posts': posts,
     }
     return render(request, 'blog_index.html', context)
 
-def blog_detail (request):
+def blog_detail (request, pk):
     post = Post.objects.get(pk = pk)
     comments = Coments.objects.filter(post = post)
     context = {
-        'post':post,
+        'post': post,
         'comments': comments,
     }
     return render(request, 'blog_detail.html', context)
-@csrf_exempt
-def index(request):
-    ss = request.POST['b']
-    print(ss)
-    return HttpResponse('POST запрос успешно обработан.')
+
+def blog_category (request, category):
+    posts = Post.objects.filter(categories__name__contains=category)
+    context = {
+        'category': category,
+        'posts': posts
+    }
+    return render(request, 'blog_category.html', context)
+# @csrf_exempt
+# def index(request):
+#     ss = request.POST['b']
+#     print(ss)
+#     return HttpResponse('POST запрос успешно обработан.')
 
 
