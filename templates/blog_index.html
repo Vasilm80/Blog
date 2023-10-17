@@ -5,7 +5,26 @@
     <title>Blog</title>
 </head>
 <body>
-<h1>Это мой блог!</h1>
 
+{% block page_content %}
+<div class="col-md-8 offset-md-2">
+    <h1>Это мой блог!</h1>
+    <hr>
+    {% for post in posts %}
+        <h2>
+        <a href="{% url 'blog_detail' post.pk %}"> {{ post.titles }}</a>
+        </h2>
+        <smal>
+        Категории:&nbsp;
+        {%  for category in post.category.all %}
+            <a href="{% url 'blog_category' category.name%}">
+            {{ category.name }}
+            </a>&bnsp;
+        {% endfor %}
+
+        </smal>
+    {% endfor %}
+</div>
+{% endblock %}
 </body>
 </html>

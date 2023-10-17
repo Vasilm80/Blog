@@ -2,12 +2,26 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 
+from blog.models import Post, Coments
+
 
 # Create your views here.
 
 def blog_index (request):
-    return render(request, 'blog_index.html')
+    posts = Post.objects.all().order_by('title')
+    context = {
+       'posts':posts
+    }
+    return render(request, 'blog_index.html', context)
 
+def blog_detail (request):
+    post = Post.objects.get(pk = pk)
+    comments = Coments.objects.filter(post = post)
+    context = {
+        'post':post,
+        'comments': comments,
+    }
+    return render(request, 'blog_detail.html', context)
 @csrf_exempt
 def index(request):
     ss = request.POST['b']
