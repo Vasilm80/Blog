@@ -25,7 +25,7 @@
         <p> {{ post.body |linebreaks }}</p>
     {% endfor %}
 </div>
-
+<div>
 <h3>Оставьте коментарий</h3>
 <form action="/blog/{{ post.pk }}/" method="post">
     {% csrf_token %}
@@ -37,6 +37,14 @@
     </div>
     <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
+    </div>
+    <div>
+    <h3>Коментарии</h3>
+    {%  for comment in comments %}
+    <p><b>{{ comment.autor }}</b></p>
+        <p>{{ comment.body }}</p>
+    {% endfor %}
 {% endblock %}
+</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 from django import forms
 
 
-class CommentForms (forms.form):
+class CommentForms (forms.Form):
     autor = forms.CharField(max_length=60,
                             widget=forms.TextInput(attrs={
                                 'class':'form-control',
