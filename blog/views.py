@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-
+from .forms import CommentForms
 from blog.models import Post, Coments
 
 
@@ -16,11 +16,23 @@ def blog_index (request):
 
 def blog_detail (request, pk):
     post = Post.objects.get(pk = pk)
+    form = CommentForms()
+    if request.method == "POST":
+        form = CommentForms(request.POST)
+        if form.is_valid():
+            comment = Coments(
+                autor=form.cleaned_data['autor'],
+                body=form.cleaned_data['body'],
+                post=post
+            )
+            comment.save()
     comments = Coments.objects.filter(post = post)
     context = {
         'post': post,
         'comments': comments,
+        'form': form
     }
+
     return render(request, 'blog_detail.html', context)
 
 def blog_category (request, category):
