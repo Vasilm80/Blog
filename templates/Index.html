@@ -15,12 +15,13 @@
         #pr {
             font-size: 40px;
             margin-top: 15px;
-
+            visibility: hidden;
         }
 
         #blo {
             font-size: 40px;
             margin-top: 15px;
+            visibility: hidden;
         }
         #hello {
             color: black;
@@ -70,6 +71,8 @@ Helloy, <br>
         hello.innerHTML = data2[0]
         hello.innerHTML +='<br>'
         hello.innerText += data2[1]
+        document.getElementById('pr').style.visibility = 'visible'
+        document.getElementById('blo').style.visibility = 'visible'
 
     }
 </script>
