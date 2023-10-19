@@ -10,9 +10,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: rgb(100, 70, 90);
+            color: rgb(200, 270, 190);
              }
-
+        #return {
+            color: red;
+            font-size: 20px;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
@@ -27,7 +31,7 @@
         <h5>Технологии:</h5>
             <p>{{ project.technology }}</p>
         </div>
-    <a href="{%  url 'project_index'%}">Вернуться к проектам</a>
+    <a href="{%  url 'project_index'%}" id="return">Вернуться к проектам</a>
 </div>
 {% endblock %}
 </body>

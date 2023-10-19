@@ -10,16 +10,20 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: rgb(200, 150, 250);
+            color: rgb(200, 250, 250);
              }
-
+        .col-md-8 {
+             display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
     </style>
 </head>
 <body>
-
+ <h1>Это мой блог!</h1>
 {% block page_content %}
 <div class="col-md-8 offset-md-2">
-    <h1>Это мой блог!</h1>
+
     <hr>
     {% for post in posts %}
         <h2>
@@ -30,11 +34,11 @@
         {%  for category in post.categories.all %}
             <a href="{% url 'blog_category' category.name%}">
             {{ category.name }}
-            </a>&bnsp;
+            </a>;
         {% endfor %}
 
         </smal>
-        <p> {{ post.body|slice:':400' }}</p>
+        <p> {{ post.body|slice:':50' }}</p>
     {% endfor %}
 </div>
 {% endblock %}

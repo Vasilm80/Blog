@@ -3,6 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Blog</title>
+     <style>
+        body {
+            background-image: url("https://png.pngtree.com/thumb_back/fw800/background/20201026/pngtree-futuristic-shape-abstract-background-chemistry-technology-concept-for-website-image_438818.jpg");
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgb(200, 250, 250);
+             }
+        #comments{
+            background-color: darkgray;
+            border-radius: 10px;
+            color: cyan;
+            font-size: 20px;
+            margin-top: 15px;
+        }
+    </style>
 </head>
 <body>
 {% block page_content %}
@@ -38,7 +55,7 @@
     <button type="submit" class="btn btn-primary">Отправить</button>
 </form>
     </div>
-    <div>
+    <div id="comments">
     <h3>Коментарии</h3>
     {%  for comment in comments %}
     <p><b>{{ comment.autor }}</b></p>
