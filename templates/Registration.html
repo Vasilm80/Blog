@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+</head>
+<style>
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url("https://img.freepik.com/free-vector/winter-blue-and-pink-gradient-background-vector_53876-117276.jpg");
+        background-size: cover;
+
+    }
+
+    h1 {
+        color: rgb(150,100,200);
+    }
+    div {
+           margin-bottom: 10px;
+             display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 300px;
+            width: 500px;
+            border-radius: 10px;
+            font-size: 30px;
+        }
+        input {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        #login{
+            height: 30px;
+            width: 200px;
+            font-size: 20px;
+            color: blue;
+            margin-left: 40px;
+        }
+        #pas {
+             height: 30px;
+            width: 200px;
+            font-size: 20px;
+        }
+        #but {
+            align-items: center;
+            margin-left: 100px;
+            height: 40px;
+            width: 150px;
+            font-size: 30px;
+            margin-top: 20px;
+        }
+</style>
+<body>
+<h1>Регистрация</h1>
+<div>
+
+    <form method="post" action= '/login/reg/'>
+        <b>Login   </b><input id="login"  name="login"/>
+        <br>
+        <b>Passwrod</b><input id="pas" type="password" name="pas" />
+        <br>
+        <b>E-mail</b><input id="login" name="email" />
+        <br>
+        <input type="submit" value="Reg" id="but">
+    </form>
+
+    <a href="/">Return Home</a>
+</body>
+</html>

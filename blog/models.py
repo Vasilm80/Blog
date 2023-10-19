@@ -18,5 +18,10 @@ class Coments(models.Model):
     body = models.TextField()
     post = models.ForeignKey('Post', on_delete=models.PROTECT, null=True )
 
+class UserModel(models.Model):
+    log = models.CharField(max_length=100, verbose_name='Login')
+    pas = models.CharField(max_length=150, verbose_name='Password')
+    email = models.CharField(max_length=200, verbose_name='E-mail')
+
 
 

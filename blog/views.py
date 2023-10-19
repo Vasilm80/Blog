@@ -1,8 +1,8 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from .forms import CommentForms
-from blog.models import Post, Coments
+from blog.models import Post, Coments, UserModel
 
 
 # Create your views here.
@@ -47,5 +47,8 @@ def blog_category (request, category):
 #     ss = request.POST['b']
 #     print(ss)
 #     return HttpResponse('POST запрос успешно обработан.')
+
+
+
 
 

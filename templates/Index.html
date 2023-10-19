@@ -22,6 +22,17 @@
             font-size: 40px;
             margin-top: 15px;
         }
+        #hello {
+            color: black;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+        }
+        #reg {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+
     </style>
 </head>
 <body>
@@ -38,7 +49,29 @@
         <a href="blog/">Мой блог</a>
         <img width="150px" height="80px" src="https://devaka.info/wp-content/uploads/2012/04/1028.jpg">
     </div>
-</div>
+    <div id="reg">
+        <a href="reg/">Пройти регистрацию</a>
+        <img src="https://cdn-icons-png.flaticon.com/512/2620/2620132.png" width="80px" height="80px">
+        <br>
 
+        <a href="login/">Пройти аутентификацию</a>
+        <img src="https://cdn-icons-png.flaticon.com/512/1791/1791961.png" width="80px" height="80px" title="Пройти аутентификацию">
+    </div>
+</div>
+ <div id="hello">
+Helloy, <br>
+     Guest
+</div>
+<script>
+    window.onload = () => {
+        let data = window.location.href.split('=')[1]
+        let data2 = data.split('%20')
+
+        hello.innerHTML = data2[0]
+        hello.innerHTML +='<br>'
+        hello.innerText += data2[1]
+
+    }
+</script>
 </body>
 </html>
